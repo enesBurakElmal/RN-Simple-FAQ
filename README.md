@@ -1,11 +1,12 @@
       Now, just for beta!
       
-      npm i rn-simple-faq@latest
+      `npm i rn-simple-faq@latest`
       
-      To basically, your faq array include 2 parameter: "question" and "answer". 
+      To basically, your faq array include 2 parameter: **"question"** and **"answer"**. 
       
       Simple array:
       
+      `
       const arr = [
       {
       "id":0,
@@ -18,9 +19,11 @@
       "answer":"Dip samet lorem ipsum"
       }
       ]
+      `
       
       Simple component usage:
       
+      `
       <FaqComponent
               faqData={arr}
               containerStyle={{ backgroundColor: '#131313' }}
@@ -32,6 +35,7 @@
                 top: 0,
               }}
             />
+            `
             
             --------
             Parameters 
