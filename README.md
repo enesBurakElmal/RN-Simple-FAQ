@@ -2,6 +2,9 @@
   
   `npm i rn-simple-faq@latest`
   
+  <img width="329" alt="image" src="https://user-images.githubusercontent.com/92387865/208238202-e5570116-1d3f-47e1-b3fd-bef82e124145.png">
+
+  
   To basically, your faq array include 2 parameter: **"question"** and **"answer"**. 
   
   **Simple array:**
