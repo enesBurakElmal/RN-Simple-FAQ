@@ -28,26 +28,40 @@
   **Simple Component  Usage:**
   
     ------
+    import FaqComponent from 'rn-simple-faq';
+    
     <FaqComponent
-            faqData={arr}
-            containerStyle={{ backgroundColor: '#131313' }}
-            faqItemStyle={{}}
-            controllerIconStyle={{
-              right: 0,
-              width: 30,
-              height: 30,
-              top: 0,
-            }}
-     />
-          -----
+      faqData={arr}
+      ontainerStyle={{ backgroundColor: '#131313' }}
+      aqItemStyle={styles.listItem}
+      controllerIconStyle={{
+        color: '#fff',
+        fontSize: 20,
+      }}
+      questionStyle={{
+        color: '#fff',
+        fontSize: 16,
+        fontWeight: 'bold',
+      }}
+      answerStyle={{
+        color: '#fff',
+        fontSize: 14,
+      }}
+      controllerIconActiveStyle={{
+        color: '#fff',
+        fontSize: 20,
+        }}
+    />
+  -----
           
  **Parameters:**        
           
-        --------
-        faqData = array format, this your FAQ data
-        containerStyle = string format, main container style
-        faqItemStyle = string format, only one faq item style
-        controllerIconStyle = string format, open-close controller style
-        questionStyle = string format, question text style
-        answerStyle= string format, answer text style
-        --------
+    --------
+      faqData = array format, this your FAQ data
+      containerStyle = string format, main container style
+      faqItemStyle = str  ing format, only one faq item style
+      controllerIconStyle = string format, open-close controller style
+      questionStyle = string format, question text style
+      answerStyle= string format, answer text style
+      controllerIconActiveStyle= string format, open-close controller active style
+    --------
