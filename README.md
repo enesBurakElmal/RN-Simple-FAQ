@@ -2,7 +2,7 @@
   
   `npm i rn-simple-faq@latest`
   
-  <img width="320" alt="image" src="https://giphy.com/gifs/faq-npm-react-native-JQnILwMr5ShmXaFyH7">
+  <img width="320" alt="image" src="https://media4.giphy.com/media/JQnILwMr5ShmXaFyH7/giphy.gif?cid=790b7611754acbeb5333463e846d21696d27e4c958e90e13&rid=giphy.gif&ct=g">
 
   
   To basically, your faq array include 2 parameter: **"question"** and **"answer"**. 
