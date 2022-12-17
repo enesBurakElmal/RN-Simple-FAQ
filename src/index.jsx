@@ -1,26 +1,6 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  useWindowDimensions,
-} from 'react-native';
-const FAQData = [
-  {
-    id: 0,
-    question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?',
-    answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  },
-  {
-    id: 1,
-    question: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit?',
-    answer:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-  },
-];
+import React, { Fragment, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+
 export default function FaqComponent({
   faqData,
   containerStyle,
@@ -28,6 +8,7 @@ export default function FaqComponent({
   answerStyle,
   questionStyle,
   controllerIconStyle,
+  controllerIconActiveStyle,
 }) {
   const [faqController, setFaqController] = useState(false);
   const [currentAnswer, setCurrentAnswer] = useState('');
@@ -53,17 +34,20 @@ export default function FaqComponent({
     faqAfter: {
       display: 'flex',
       flexDirection: 'row',
+      alignItems: 'center',
     },
     closeIcon: {
-      color: 'blue',
+      color: 'white',
       fontWeight: 'bold',
       fontSize: 30,
+      marginRight: width / 40,
     },
     closeIconActive: {
       transform: [{ rotate: '45deg' }],
-      color: 'blue',
+      color: 'white',
       fontWeight: 'bold',
       fontSize: 30,
+      marginRight: width / 40,
     },
     answerWrapper: {
       width: '84%',
@@ -74,6 +58,7 @@ export default function FaqComponent({
       color: 'white',
       fontSize: 14,
       lineHeight: 14,
+      left: 7,
     },
     faqTitle: {
       color: '#FF007A',
@@ -108,7 +93,7 @@ export default function FaqComponent({
                     <Text
                       style={[
                         currentAnswer === faq.answer
-                          ? styles.closeIconActive
+                          ? [styles.closeIconActive, controllerIconActiveStyle]
                           : styles.closeIcon,
                         controllerIconStyle,
                       ]}
