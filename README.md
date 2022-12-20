@@ -1,16 +1,20 @@
+  <p align="center">
   Now, just for beta!
   
   `npm i rn-simple-faq@latest`
   
   <img width="320" alt="image" src="https://media4.giphy.com/media/JQnILwMr5ShmXaFyH7/giphy.gif?cid=790b7611754acbeb5333463e846d21696d27e4c958e90e13&rid=giphy.gif&ct=g">
+  </p>
   
   -----
   **View example on Expo Snack:**
   https://snack.expo.dev/@eneselmal/greedy-cheese
   -----
   
+  
   <p align="center">
   <a href="https://www.buymeacoffee.com/enesburakelmal" target="_blank" align="center"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" align="center"></a></p>
+  
   
   To basically, your faq array include 2 parameter: **"question"** and **"answer"**. 
   
