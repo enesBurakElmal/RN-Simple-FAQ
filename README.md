@@ -4,8 +4,8 @@
   
   <img width="320" alt="image" src="https://media4.giphy.com/media/JQnILwMr5ShmXaFyH7/giphy.gif?cid=790b7611754acbeb5333463e846d21696d27e4c958e90e13&rid=giphy.gif&ct=g">
   
-  -----
   View example on Expo Snack:
+  -----
   https://snack.expo.dev/@eneselmal/greedy-cheese
   -----
   
