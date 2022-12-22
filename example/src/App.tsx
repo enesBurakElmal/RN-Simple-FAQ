@@ -1,18 +1,24 @@
 import * as React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Faq from 'rn-simple-faq';
 
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'rn-simple-faq';
+const exampleData = [
+  {
+    id: 0,
+    question: 'Lorem ipsum',
+    answer: 'Dip samet',
+  },
+  {
+    id: 1,
+    question: 'Lorem ipsum sit amet',
+    answer: 'Dip samet lorem ipsum',
+  },
+];
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Faq faqData={exampleData} />
     </View>
   );
 }

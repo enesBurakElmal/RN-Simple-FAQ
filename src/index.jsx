@@ -1,5 +1,14 @@
 import React, { Fragment, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { useMemo } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
+
+const SCREEN_WIDTH = Dimensions.get('screen').width;
 
 export default function FaqComponent({
   faqData,
@@ -9,6 +18,8 @@ export default function FaqComponent({
   questionStyle,
   controllerIconStyle,
   controllerIconActiveStyle,
+  questionPropName,
+  answerPropName,
 }) {
   const [faqController, setFaqController] = useState(false);
   const [currentAnswer, setCurrentAnswer] = useState('');
@@ -21,53 +32,13 @@ export default function FaqComponent({
     }
   };
 
-  const styles = StyleSheet.create({
-    container: {
-      width: '100%',
-      height: 'auto',
-      backgroundColor: 'black',
-      padding: 20,
-    },
-    faqText: {
-      fontWeight: 'normal',
-    },
-    faqAfter: {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    closeIcon: {
-      color: 'white',
-      fontWeight: 'bold',
-      fontSize: 30,
-      marginRight: width / 40,
-    },
-    closeIconActive: {
-      transform: [{ rotate: '45deg' }],
-      color: 'white',
-      fontWeight: 'bold',
-      fontSize: 30,
-      marginRight: width / 40,
-    },
-    answerWrapper: {
-      width: '84%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-    },
-    answer: {
-      color: 'white',
-      fontSize: 14,
-      lineHeight: 14,
-      left: 7,
-    },
-    faqTitle: {
-      color: '#FF007A',
-      fontSize: 16,
-      fontWeight: 'bold',
-      paddingBottom: 10,
-      paddingTop: 10,
-    },
-  });
+  const propNames = useMemo(
+    () => ({
+      question: questionPropName || 'question',
+      answer: answerPropName || 'answer',
+    }),
+    [questionPropName, answerPropName]
+  );
 
   const DisplayFaq = () => {
     return (
@@ -86,13 +57,13 @@ export default function FaqComponent({
               <View style={faqItemStyle} key={index}>
                 <TouchableOpacity
                   onPress={() => {
-                    onFaqController(faq.answer);
+                    onFaqController(faq[propNames.answer]);
                   }}
                 >
                   <View style={styles.faqAfter}>
                     <Text
                       style={[
-                        currentAnswer === faq.answer
+                        currentAnswer === faq[propNames.answer]
                           ? [styles.closeIconActive, controllerIconActiveStyle]
                           : styles.closeIcon,
                         controllerIconStyle,
@@ -101,10 +72,12 @@ export default function FaqComponent({
                       +
                     </Text>
                     <Text style={[styles.faqTitle, questionStyle]}>
-                      {faq.question}
+                      {faq[propNames.question]}
                     </Text>
                   </View>
-                  {currentAnswer === faq.answer ? <DisplayFaq /> : null}
+                  {currentAnswer === faq[propNames.answer] ? (
+                    <DisplayFaq />
+                  ) : null}
                 </TouchableOpacity>
               </View>
             </Fragment>
@@ -114,3 +87,51 @@ export default function FaqComponent({
     </Fragment>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: 'auto',
+    backgroundColor: 'black',
+    padding: 20,
+  },
+  faqText: {
+    fontWeight: 'normal',
+  },
+  faqAfter: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  closeIcon: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 30,
+    marginRight: SCREEN_WIDTH / 40,
+  },
+  closeIconActive: {
+    transform: [{ rotate: '45deg' }],
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 30,
+    marginRight: SCREEN_WIDTH / 40,
+  },
+  answerWrapper: {
+    width: '84%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
+  answer: {
+    color: 'white',
+    fontSize: 14,
+    lineHeight: 14,
+    left: 7,
+  },
+  faqTitle: {
+    color: '#FF007A',
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingBottom: 10,
+    paddingTop: 10,
+  },
+});
